@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevin Alvaro Wisar — Profil</title>
+<style>
+  :root{
+    --glass-bg: rgba(255,255,255,0.14);
+    --glass-bg-strong: rgba(255,255,255,0.22);
+    --glass-border: rgba(255,255,255,0.35);
+    --text-main: #1c2530;
+    --text-soft: #435063;
+    --accent: #3a7bd5;
+    --accent-2: #6fc3df;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html,body{
+    min-height:100%;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+  }
+
+  body{
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255,255,255,0.5), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,0.35), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(255,255,255,0.25), transparent 50%),
+      linear-gradient(135deg, #74b9e8 0%, #6a8fd8 30%, #7f7fd5 60%, #91a7e0 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    padding: 28px;
+  }
+
+  /* ---------- reusable glass panel ---------- */
+  .glass{
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    box-shadow: 0 8px 32px rgba(31,38,60,0.18), inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 26px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 12px;
+    z-index: 10;
+  }
+
+  header .brand{
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  header .brand span{ color: var(--accent); }
+
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap: 6px;
+  }
+
+  nav a{
+    display:inline-block;
+    text-decoration:none;
+    color: var(--text-main);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  nav a:hover{
+    background: var(--glass-bg-strong);
+    transform: translateY(-1px);
+  }
+
+  nav a.cta{
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(58,123,213,0.45);
+  }
+
+  nav a.cta:hover{ background:#3169bb; }
+
+  /* ---------- layout ---------- */
+  .layout{
+    flex:1;
+    display:flex;
+    gap: 20px;
+    align-items:flex-start;
+    flex-wrap: wrap;
+  }
+
+  main{
+    flex: 3 1 480px;
+    display:flex;
+    flex-direction:column;
+    gap: 20px;
+  }
+
+  aside{
+    flex: 1 1 260px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 18px;
+    padding: 34px 24px;
+    text-align:center;
+    position: sticky;
+    top: 100px;
+  }
+
+  aside .avatar-frame{
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.15));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(31,38,60,0.25);
+  }
+
+  aside img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display:block;
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+
+  aside h2{
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  aside .role{
+    font-size: 0.85rem;
+    color: var(--text-soft);
+  }
+
+  aside .tag-row{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  aside .tag{
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    color: var(--text-soft);
+  }
+
+  /* ---------- article cards ---------- */
+  article{
+    padding: 30px 32px;
+  }
+
+  article h1{
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  article .lede{
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    margin-bottom: 18px;
+    max-width: 65ch;
+  }
+
+  .divider{
+    height:1px;
+    background: linear-gradient(to right, rgba(255,255,255,0.6), rgba(255,255,255,0));
+    margin: 18px 0;
+  }
+
+  .info-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .info-item{
+    flex: 1 1 220px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+
+  .info-item .label{
+    font-size: 0.72rem;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
+
+  .info-item .value{
+    font-size: 0.94rem;
+    font-weight: 600;
+  }
+
+  .exp-list{
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+
+  .exp-item{
+    display:flex;
+    gap: 14px;
+    align-items:flex-start;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 14px 18px;
+  }
+
+  .exp-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 6px;
+    flex-shrink:0;
+  }
+
+  .exp-item h3{
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .exp-item p{
+    font-size: 0.85rem;
+    color: var(--text-soft);
+  }
+
+  section.title-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom: 14px;
+  }
+
+  section.title-row h2{
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top: 24px;
+    padding: 18px 26px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--text-soft);
+  }
+
+  footer a{ color: var(--accent); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+
+  @media (max-width: 720px){
+    body{ padding: 16px; }
+    header{ flex-direction:column; gap: 12px; align-items:flex-start; }
+    nav ul{ flex-wrap: wrap; }
+    aside{ position: static; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="glass">
+    <div class="brand">Kevin Alvaro Wisar </div>
+    <nav>
+      <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#organisasi">Organisasi</a></li>
+        <li><a href="https://www.dicoding.com/users/alvr_xyzar/academies" class="cta" target="_blank" rel="noopener">Profil Dicoding</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+
+    <main>
+      <article id="tentang" class="glass">
+        <h1>Kevin Alvaro Wisar</h1>
+        <p class="lede">Mahasiswa Sistem Informasi, Universitas Nusantara PGRI Kediri. Tertarik pada dunia teknologi, fotografi, dan pengembangan diri lewat organisasi kampus.</p>
+
+        <div class="divider"></div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">Tanggal Lahir</div>
+            <div class="value">10 April 2007</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Program Studi</div>
+            <div class="value">Sistem Informasi</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Universitas</div>
+            <div class="value">Universitas Nusantara PGRI Kediri</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Hobi</div>
+            <div class="value">Fotografi</div>
+          </div>
+          <div class="info-item" style="flex-basis:100%;">
+            <div class="label">Alamat</div>
+            <div class="value">Desa Minggiran, Kec. Papar, Kab. Kediri, Prov. Jawa Timur</div>
+          </div>
+        </div>
+      </article>
+
+      <article id="organisasi" class="glass">
+        <section class="title-row">
+          <h2>Pengalaman Organisasi</h2>
+        </section>
+        <div class="exp-list">
+          <div class="exp-item">
+            <span class="exp-dot"></span>
+            <div>
+              <h3>Divisi Media &amp; Komunikasi</h3>
+              <p>UKM PPN (Panji Padhang Nusantara)</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-dot"></span>
+            <div>
+              <h3>Divisi Konten Kreatif</h3>
+              <p>UKM FIB Caraka</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <aside class="glass">
+      <div class="avatar-frame">
+        <img src="foto_crop.jpg" alt="Foto Kevin Alvaro Wisar">
+      </div>
+      <div>
+        <h2>Kevin Alvaro Wisar</h2>
+        <div class="role">Mahasiswa Sistem Informasi</div>
+      </div>
+      <div class="tag-row">
+        <span class="tag">Fotografi</span>
+        <span class="tag">Media &amp; Komunikasi</span>
+        <span class="tag">Konten Kreatif</span>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="glass">
+    <div>&copy; 2026 Kevin Alvaro Wisar.</div>
+    <div>Lihat progres belajar saya di <a href="https://www.dicoding.com/users/alvr_xyzar/academies" target="_blank" rel="noopener">Dicoding</a></div>
+  </footer>
+
+</body>
+</html>
