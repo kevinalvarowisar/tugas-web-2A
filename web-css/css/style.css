@@ -26,9 +26,7 @@ body {
     overflow: hidden;
 }
 
-/* ==============================
-   HEADER
-   ============================== */
+
 
 .header {
     min-height: 110px;
@@ -80,9 +78,7 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* ==============================
-   HERO
-   ============================== */
+
 
 .hero {
     height: 570px;
@@ -179,9 +175,7 @@ nav a:hover::after {
     box-shadow: 0 10px 30px rgba(224,0,0,.25);
 }
 
-/* ==============================
-   ARTICLE
-   ============================== */
+
 
 .article {
     padding: 60px 7%;
@@ -221,9 +215,7 @@ nav a:hover::after {
     margin-bottom: 20px;
 }
 
-/* ==============================
-   INFO CARDS
-   ============================== */
+
 
 .info-grid {
     display: grid;
@@ -283,9 +275,7 @@ nav a:hover::after {
     font-size: 13px;
 }
 
-/* ==============================
-   HISTORY
-   ============================== */
+
 
 .history {
     display: grid;
@@ -320,9 +310,7 @@ nav a:hover::after {
     margin-bottom: 18px;
 }
 
-/* ==============================
-   QUOTE
-   ============================== */
+
 
 .quote {
     margin: 60px auto 15px;
@@ -351,9 +339,7 @@ nav a:hover::after {
     letter-spacing: 2px;
 }
 
-/* ==============================
-   FOOTER
-   ============================== */
+
 
 footer {
     padding: 24px 35px;
@@ -373,9 +359,6 @@ footer strong {
     color: #777;
 }
 
-/* ==============================
-   ANIMATIONS
-   ============================== */
 
 @keyframes slowZoom {
     from {
@@ -406,9 +389,7 @@ footer strong {
     }
 }
 
-/* ==============================
-   RESPONSIVE
-   ============================== */
+
 
 @media (max-width: 760px) {
 
