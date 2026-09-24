@@ -1,0 +1,463 @@
+/* ==============================
+   McLaren Senna Website
+   Kevin Alvaro Wisar - 2026
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #d7d7d7;
+    color: #111;
+    line-height: 1.6;
+}
+
+/* Container utama */
+.page {
+    width: min(100% - 40px, 1050px);
+    margin: 30px auto;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+
+.header {
+    min-height: 110px;
+    padding: 28px 38px 20px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.brand {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: #e00000;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #e00000;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    height: 570px;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: slowZoom 12s ease-in-out infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.40) 38%, rgba(0,0,0,.05) 75%),
+        linear-gradient(0deg, rgba(0,0,0,.55), transparent 45%);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.16);
+    filter: blur(80px);
+    right: -80px;
+    top: -80px;
+    z-index: 2;
+    animation: floatGlow 5s ease-in-out infinite;
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 3;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 540px;
+    animation: revealUp 1s ease both;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #ff3838;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 100px);
+    line-height: .85;
+    letter-spacing: -5px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #fff;
+    -webkit-text-stroke: 1px rgba(255,255,255,.8);
+}
+
+.hero-text {
+    font-size: 16px;
+    max-width: 460px;
+    color: #e6e6e6;
+    margin-bottom: 28px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 23px;
+    border: 1px solid rgba(255,255,255,.55);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.button:hover {
+    background: #e00000;
+    border-color: #e00000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(224,0,0,.25);
+}
+
+/* ==============================
+   ARTICLE
+   ============================== */
+
+.article {
+    padding: 60px 7%;
+}
+
+.article-heading {
+    border-left: 4px solid #e00000;
+    padding-left: 20px;
+    margin-bottom: 32px;
+}
+
+.date {
+    color: #e00000;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.article-heading h2 {
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    max-width: 800px;
+}
+
+.author {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #777;
+}
+
+.article > p {
+    font-size: 15px;
+    color: #444;
+    max-width: 850px;
+    margin-bottom: 20px;
+}
+
+/* ==============================
+   INFO CARDS
+   ============================== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 45px 0 70px;
+}
+
+.info-card {
+    padding: 27px;
+    min-height: 220px;
+    background: #f4f4f4;
+    border: 1px solid #e4e4e4;
+    position: relative;
+    overflow: hidden;
+    transition: .35s ease;
+}
+
+.info-card::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    right: -25px;
+    top: -25px;
+    background: #e00000;
+    border-radius: 50%;
+    opacity: .08;
+    transition: .35s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    background: #fff;
+    box-shadow: 0 18px 35px rgba(0,0,0,.10);
+    border-color: #ddd;
+}
+
+.info-card:hover::before {
+    transform: scale(2.2);
+}
+
+.number {
+    font-size: 12px;
+    font-weight: bold;
+    color: #e00000;
+    letter-spacing: 2px;
+}
+
+.info-card h3 {
+    font-size: 22px;
+    margin: 20px 0 10px;
+}
+
+.info-card p {
+    color: #666;
+    font-size: 13px;
+}
+
+/* ==============================
+   HISTORY
+   ============================== */
+
+.history {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    padding: 55px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.section-label {
+    color: #e00000;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.history h2 {
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.history h2 span {
+    color: #999;
+}
+
+.history-text p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 18px;
+}
+
+/* ==============================
+   QUOTE
+   ============================== */
+
+.quote {
+    margin: 60px auto 15px;
+    max-width: 760px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.4;
+    position: relative;
+}
+
+.quote > span {
+    display: block;
+    color: #e00000;
+    font-family: Georgia, serif;
+    font-size: 80px;
+    height: 55px;
+}
+
+.quote small {
+    display: block;
+    margin-top: 18px;
+    color: #999;
+    font-size: 11px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+footer {
+    padding: 24px 35px;
+    background: #090909;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 11px;
+}
+
+footer strong {
+    color: #ff3030;
+}
+
+.footer-date {
+    color: #777;
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.06);
+    }
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(calc(-50% + 35px));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes floatGlow {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-25px, 30px);
+    }
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 760px) {
+
+    .page {
+        width: 100%;
+        margin: 0;
+    }
+
+    .header {
+        padding: 24px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .hero {
+        height: 520px;
+    }
+
+    .hero-content {
+        left: 24px;
+        right: 24px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .article {
+        padding: 45px 24px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .history {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}

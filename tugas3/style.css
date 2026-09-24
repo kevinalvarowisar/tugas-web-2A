@@ -1,0 +1,84 @@
+body {
+  background-color: #e3f2fd;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.container {
+  background-color: white;
+  width: 500px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px gray;
+
+  /* Animasi muncul dari bawah */
+  animation: muncul 1s ease-out;
+}
+
+/* Judul */
+h1 {
+  color: #1976d2;
+}
+
+/* Paragraf */
+p {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Nama */
+.nama {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+/* Kota */
+.kota {
+  color: #00897b;
+  font-weight: bold;
+}
+
+/* Animasi muncul dari bawah */
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Goyang tipis secara otomatis */
+.container {
+  animation:
+    muncul 1s ease-out,
+    goyang 3s ease-in-out 1s infinite;
+}
+
+/* Animasi goyang tipis */
+@keyframes goyang {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(2px);
+  }
+
+  50% {
+    transform: translateX(-2px);
+  }
+
+  75% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
